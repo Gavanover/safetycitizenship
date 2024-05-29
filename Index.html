@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Show Drawing App</title>
+    <style>
+        /* Styles for countdown displays */
+        .countdown-container {
+            position: absolute;
+            
+    font-size: 2em;
+    color: white;
+    background-color: #007bff;
+    padding: 20px;
+    border-radius: 10px;
+            
+            text-align: center;
+            display: none; /* Initially hide the countdown display */
+        }
+
+        /* Style for the countdown in the left pane */
+        #left-countdown {
+            bottom: 80px;
+            right: 80px;
+            background-color: #007bff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .right-panel {
+            flex: 2;
+            position: relative;
+            background-image: url('your-logo.jpg'); /* Change to your background image URL */
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            height: 100%; /* Occupies full height of parent container */
+        }
+
+        #participants-form h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .input-group label, .input-group input {
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        #save-entries, #load-entries, #spin {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+
+        #entries-display {
+            max-height: 1000px; /* Adjust maximum height as needed */
+            overflow-y: auto; /* Add scrollbar when content exceeds maximum height */
+        }
+
+/* Styles for the winner-announcement element */
+#winner-announcement {
+    position: fixed; /* Keep using fixed positioning for centering */
+    top: 19.5%; /* Keep the top edge at the vertical center */
+    left: 86.6%; /* Keep the left edge at the horizontal center */
+    font-size: 2em;
+    color: white;
+    background-color: #007bff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-height: 500px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="left-panel" id="participants-form">
+            <!-- Button to Trigger Import -->
+    <button id="import-entries">Import Entries</button>
+    <!-- Button to Trigger Export -->
+    <button id="exportButton">Export Entries</button><h2>Participants Entry Management</h2>
+            <button id="save-entries">Save Entries</button>
+            <!-- Participant Entries will be inserted here by JavaScript -->
+            <div id="participant-entries"></div>
+            
+            <!-- Countdown display for left pane -->
+            <div id="left-countdown" class="countdown-container"></div>
+        </div>
+        <div class="right-panel">
+            <div class="logo-background">
+                <button id="load-entries">Load Entries</button>
+                <button id="spin">Spin</button>                
+                <div id="entries-display"></div>
+                <div id="winner-announcement"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
